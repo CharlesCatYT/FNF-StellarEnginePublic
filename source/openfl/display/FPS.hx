@@ -89,7 +89,7 @@ class FPS extends TextField
 			text += "\nMemory: " + memoryMegas + " MB";
 			#end
 
-			text += "\nFNF: Psych Engine v0.7.1h Custom Build";
+			text += "\nFNF Vs. Transparent Arnold DEMO";
 
 			textColor = 0xFFFFFFFF;
 			if (memoryMegas > 3000 || currentFPS <= ClientPrefs.data.framerate / 2)
