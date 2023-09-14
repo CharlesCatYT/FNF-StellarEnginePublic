@@ -755,16 +755,14 @@ class CharacterEditorState extends MusicBeatState
 			{
 				reloadCharacterImage();
 				char.jsonScale = sender.value;
-				char.setGraphicSize(Std.int(char.width * char.jsonScale));
+				char.scale.set(char.jsonScale, char.jsonScale);
 				char.updateHitbox();
-				ghostChar.setGraphicSize(Std.int(ghostChar.width * char.jsonScale));
+				ghostChar.scale.set(char.jsonScale, char.jsonScale);
 				ghostChar.updateHitbox();
 				reloadGhost();
 				updatePointerPos();
 
-				if(char.animation.curAnim != null) {
-					char.playAnim(char.animation.curAnim.name, true);
-				}
+				if(char.animation.curAnim != null) char.playAnim(char.animation.curAnim.name, true);
 			}
 			else if(sender == positionXStepper)
 			{
@@ -812,9 +810,7 @@ class CharacterEditorState extends MusicBeatState
 
 	function reloadCharacterImage() {
 		var lastAnim:String = '';
-		if(char.animation.curAnim != null) {
-			lastAnim = char.animation.curAnim.name;
-		}
+		if(char.animation.curAnim != null) lastAnim = char.animation.curAnim.name;
 		var anims:Array<AnimArray> = char.animationsArray.copy();
 		if(Paths.fileExists('images/' + char.imageFile + '/Animation.json', TEXT)) {
 			char.frames = AtlasFrameMaker.construct(char.imageFile);
@@ -841,11 +837,8 @@ class CharacterEditorState extends MusicBeatState
 			char.quickAnimAdd('idle', 'BF idle dance');
 		}
 
-		if(lastAnim != '') {
-			char.playAnim(lastAnim, true);
-		} else {
-			char.dance();
-		}
+		if(lastAnim != '') char.playAnim(lastAnim, true); 
+		else char.dance();
 		ghostDropDown.selectedLabel = '';
 		reloadGhost();
 	}
@@ -905,24 +898,13 @@ class CharacterEditorState extends MusicBeatState
 		ghostChar.alpha = 0.6;
 
 		char = new Character(0, 0, daAnim, !isDad);
-		if(char.animationsArray[0] != null) {
-			char.playAnim(char.animationsArray[0].anim, true);
-		}
+		if(char.animationsArray[0] != null) char.playAnim(char.animationsArray[0].anim, true);
 		char.debugMode = true;
 
 		charLayer.add(ghostChar);
 		charLayer.add(char);
 
 		char.setPosition(char.positionArray[0] + OFFSET_X + 100, char.positionArray[1]);
-
-		/* THIS FUNCTION WAS USED TO PUT THE .TXT OFFSETS INTO THE .JSON
-
-		for (anim => offset in char.animOffsets) {
-			var leAnim:AnimArray = findAnimationByName(anim);
-			if(leAnim != null) {
-				leAnim.offsets = [offset[0], offset[1]];
-			}
-		}*/
 
 		if(blahBlahBlah) {
 			genBoyOffsets();
@@ -949,9 +931,7 @@ class CharacterEditorState extends MusicBeatState
 
 	function findAnimationByName(name:String):AnimArray {
 		for (anim in char.animationsArray) {
-			if(anim.anim == name) {
-				return anim;
-			}
+			if(anim.anim == name) return anim;
 		}
 		return null;
 	}
@@ -982,7 +962,11 @@ class CharacterEditorState extends MusicBeatState
 			anims.push(anim.anim);
 			ghostAnims.push(anim.anim);
 		}
-		if(anims.length < 1) anims.push('NO ANIMATIONS'); //Prevents crash
+		if(anims.length < 1) //Prevents crash
+		{
+				anims.push('NO ANIMATIONS');
+				trace("THERES NO ANIMATIONS!!!!!")
+	    }
 
 		animationDropDown.setData(FlxUIDropDownMenu.makeStrIdLabelArray(anims, true));
 		ghostDropDown.setData(FlxUIDropDownMenu.makeStrIdLabelArray(ghostAnims, true));
@@ -1003,9 +987,7 @@ class CharacterEditorState extends MusicBeatState
 				ghostChar.animation.addByPrefix(animAnim, animName, animFps, animLoop);
 			}
 
-			if(anim.offsets != null && anim.offsets.length > 1) {
-				ghostChar.addOffset(anim.anim, anim.offsets[0], anim.offsets[1]);
-			}
+			if(anim.offsets != null && anim.offsets.length > 1) ghostChar.addOffset(anim.anim, anim.offsets[0], anim.offsets[1]);
 		}
 
 		char.alpha = 0.85;
@@ -1070,9 +1052,7 @@ class CharacterEditorState extends MusicBeatState
 			textAnim.text = char.animationsArray[curAnim].anim;
 
 			var curAnim:FlxAnimation = char.animation.getByName(char.animationsArray[curAnim].anim);
-			if(curAnim == null || curAnim.frames.length < 1) {
-				textAnim.text += ' (ERROR!)';
-			}
+			if(curAnim == null || curAnim.frames.length < 1) textAnim.text += ' (ERROR!)';
 		} else {
 			textAnim.text = '';
 		}
@@ -1190,28 +1170,11 @@ class CharacterEditorState extends MusicBeatState
 				}
 			}
 		}
-		//camMenu.zoom = FlxG.camera.zoom;
 		ghostChar.setPosition(char.x, char.y);
 		super.update(elapsed);
 	}
 
 	var _file:FileReference;
-	/*private function saveOffsets()
-	{
-		var data:String = '';
-		for (anim => offsets in char.animOffsets) {
-			data += anim + ' ' + offsets[0] + ' ' + offsets[1] + '\n';
-		}
-
-		if (data.length > 0)
-		{
-			_file = new FileReference();
-			_file.addEventListener(Event.COMPLETE, onSaveComplete);
-			_file.addEventListener(Event.CANCEL, onSaveCancel);
-			_file.addEventListener(IOErrorEvent.IO_ERROR, onSaveError);
-			_file.save(data, daAnim + "Offsets.txt");
-		}
-	}*/
 
 	function onSaveComplete(_):Void
 	{
