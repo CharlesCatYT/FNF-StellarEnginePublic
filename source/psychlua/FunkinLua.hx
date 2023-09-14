@@ -132,7 +132,7 @@ class FunkinLua {
 		set('rating', 0);
 		set('ratingName', '');
 		set('ratingFC', '');
-		set('version', MainMenuState.psychEngineVersion.trim());
+		set('version', MainMenuState.stellarEngineVersion.trim());
 
 		set('inGameOver', false);
 		set('mustHitSection', false);
@@ -1595,8 +1595,6 @@ class FunkinLua {
 		return 'ios';
 		#elseif iphonesim
 		return 'iphonesimulator';
-		#elseif switch
-		return 'switch';
 		#elseif neko
 		return 'neko';
 		#else

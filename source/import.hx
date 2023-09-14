@@ -6,7 +6,7 @@ package;
 #if desktop
 import backend.Discord;
 #end
-// Psych
+// Psych/Stellar
 #if LUA_ALLOWED
 import llua.*;
 import llua.Lua;

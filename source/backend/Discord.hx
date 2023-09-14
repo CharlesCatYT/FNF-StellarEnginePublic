@@ -14,7 +14,7 @@ class DiscordClient
 		details: "In the Menus",
 		state: null,
 		largeImageKey: 'icon',
-		largeImageText: "Psych Engine",
+		largeImageText: "Stellar Engine",
 		smallImageKey : null,
 		startTimestamp : null,
 		endTimestamp : null
@@ -36,10 +36,7 @@ class DiscordClient
 		{
 			DiscordRpc.process();
 			sleep(2);
-			//trace('Discord Client Update $localID');
 		}
-
-		//DiscordRpc.shutdown();
 	}
 
 	public static function check()
@@ -117,14 +114,12 @@ class DiscordClient
 		_options.details = details;
 		_options.state = state;
 		_options.largeImageKey = 'icon';
-		_options.largeImageText = "Engine Version: " + states.MainMenuState.psychEngineVersion;
+		_options.largeImageText = "Engine Version: " + states.MainMenuState.stellarEngineVersion;
 		_options.smallImageKey = smallImageKey;
 		// Obtained times are in milliseconds so they are divided so Discord can use it
 		_options.startTimestamp = Std.int(startTimestamp / 1000);
 		_options.endTimestamp = Std.int(endTimestamp / 1000);
 		DiscordRpc.presence(_options);
-
-		//trace('Discord RPC Updated. Arguments: $details, $state, $smallImageKey, $hasStartTimestamp, $endTimestamp');
 	}
 	
 	public static function resetClientID()
@@ -134,11 +129,7 @@ class DiscordClient
 	public static function loadModRPC()
 	{
 		var pack:Dynamic = Mods.getPack();
-		if(pack != null && pack.discordRPC != null && pack.discordRPC != clientID)
-		{
-			clientID = pack.discordRPC;
-			//trace('Changing clientID! $clientID, $_defaultID');
-		}
+		if(pack != null && pack.discordRPC != null && pack.discordRPC != clientID) clientID = pack.discordRPC;
 	}
 	#end
 

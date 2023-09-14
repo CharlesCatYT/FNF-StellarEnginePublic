@@ -39,11 +39,11 @@ same goes for _Lua Scripts_, comment out or delete the line with `LUA_ALLOWED`, 
 
 ## Credits:
 
-### Awesome Engine
+### Stellar Engine
 
 - CharlesCatYT - Main Programmer
 
-### Awesome: Special Thanks
+### Stellar: Special Thanks
 
 - TheWorldMachinima - Softcoded Achievements
 - notweuz - The features I took from OS Engine cuz im lazy rn

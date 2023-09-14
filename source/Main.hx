@@ -229,6 +229,7 @@ class Main extends Sprite
 	function onCrash(e:UncaughtErrorEvent):Void
 	{
 		var errMsg:String = "";
+		var errMsgPrint:String = "";
 		var path:String;
 		var callStack:Array<StackItem> = CallStack.exceptionStack(true);
 		var dateNow:String = Date.now().toString();
@@ -236,7 +237,7 @@ class Main extends Sprite
 		dateNow = dateNow.replace(" ", "_");
 		dateNow = dateNow.replace(":", "'");
 
-		path = "./crash/" + "PsychEngine_" + dateNow + ".txt";
+		path = "./crash/" + "StellarEngine_" + dateNow + ".txt";
 
 		for (stackItem in callStack)
 		{
@@ -244,6 +245,7 @@ class Main extends Sprite
 			{
 				case FilePos(s, file, line, column):
 					errMsg += file + " (line " + line + ")\n";
+					errMsgPrint += file + ":" + line + "\n"; // if you Ctrl+Mouse Click its go to the line.
 				default:
 					Sys.println(stackItem);
 			}

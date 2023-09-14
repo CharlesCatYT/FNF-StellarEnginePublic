@@ -35,6 +35,9 @@ typedef TitleData =
 	starty:Float,
 	gfx:Float,
 	gfy:Float,
+	gfscalex:Float,
+	gfscaley:Float,
+	gfantialiasing:Bool,
 	backgroundSprite:String,
 	bpm:Int
 }
@@ -108,7 +111,7 @@ class TitleState extends MusicBeatState
 			http.onData = function(data:String)
 			{
 				updateVersion = data.split('\n')[0].trim();
-				var curVersion:String = MainMenuState.psychEngineVersion.trim();
+				var curVersion:String = MainMenuState.stellarEngineVersion.trim();
 				trace('version online: ' + updateVersion + ', your version: ' + curVersion);
 				if (updateVersion != curVersion)
 				{
@@ -218,7 +221,8 @@ class TitleState extends MusicBeatState
 
 		if (ClientPrefs.data.shaders) swagShader = new ColorSwap();
 		gfDance = new FlxSprite(titleJSON.gfx, titleJSON.gfy);
-		gfDance.antialiasing = ClientPrefs.data.antialiasing;
+		gfDance.scale.set(titleJSON.gfscalex, titleJSON.gfscaley);
+		gfDance.antialiasing = titleJSON.gfantialiasing;
 
 		var easterEgg:String = FlxG.save.data.psychDevsEasterEgg;
 		if (easterEgg == null) easterEgg = ''; // html5 fix
@@ -548,15 +552,14 @@ override function beatHit()
 				FlxG.sound.playMusic(Paths.music('freakyMenu'), 0);
 				FlxG.sound.music.fadeIn(4, 0, 0.7);
 			case 2:
-				#if PSYCH_WATERMARKS
-				createCoolText(['Psych Engine by'], 40);
+				#if STELLAR_WATERMARKS
+				createCoolText(['Stellar Engine by'], 40);
 				#else
 				createCoolText(['ninjamuffin99', 'phantomArcade', 'kawaisprite', 'evilsk8er']);
 				#end
 			case 4:
-				#if PSYCH_WATERMARKS
-				addMoreText('Shadow Mario', 40);
-				addMoreText('Riveren', 40);
+				#if STELLAR_WATERMARKS
+				addMoreText('CharlesCatYT', 40);
 				#else
 				addMoreText('present');
 				#end

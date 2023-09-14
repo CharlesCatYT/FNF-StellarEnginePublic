@@ -16,7 +16,7 @@
 
 	<set name="SWF_VERSION" value="11.8" />
 	
-	<!-- ______________________ PSYCH ENGINE CUSTOMIZATION ______________________ -->
+	<!-- ______________________ STELLAR ENGINE CUSTOMIZATION ______________________ -->
 
 	<define name="MODS_ALLOWED" if="desktop" />
 	<define name="HSCRIPT_ALLOWED" if="desktop" />
@@ -24,7 +24,7 @@
 	<define name="LOADING_SCREEN" />
 	<define name="ACHIEVEMENTS_ALLOWED" />
 	<define name="VIDEOS_ALLOWED" if="windows || linux || android" unless="32bits"/>
-	<define name="PSYCH_WATERMARKS"/> <!-- DELETE THIS TO REMOVE WATERMARKS/DEV NAMES ON TITLE SCREEN -->
+	<define name="STELLAR_WATERMARKS"/> <!-- DELETE THIS TO REMOVE WATERMARKS/DEV NAMES ON TITLE SCREEN -->
 	<!--<define name="TITLE_SCREEN_EASTER_EGG" />--> <!-- DELETE THE if="officialBuild" for enabling this on an unofficial build -->
 
 	<!-- ____________________________ Window Settings ___________________________ -->
@@ -123,7 +123,7 @@
 	<haxelib name="flixel-ui" />
 	<haxelib name="flixel-addons" />
 
-	<!--Psych stuff needed-->
+	<!--Stellar stuff needed-->
 	<haxelib name="linc_luajit" if="LUA_ALLOWED"/>
 	<haxelib name="SScript" if="HSCRIPT_ALLOWED"/>
 	<haxelib name="hxCodec" if="VIDEOS_ALLOWED"/>

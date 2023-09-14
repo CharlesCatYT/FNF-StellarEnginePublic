@@ -31,21 +31,24 @@ class FPS extends TextField
 		The current frame rate, expressed using frames-per-second
 	**/
 	public var currentFPS(default, null):Int;
+	private var memoryMegas:Float = 0;
+	private var memoryTotal:Float = 0;
+	private var memoryMegasPeak:Float = 0;
 
 	@:noCompletion private var cacheCount:Int;
 	@:noCompletion private var currentTime:Float;
 	@:noCompletion private var times:Array<Float>;
 
-	public function new(x:Float = 10, y:Float = 10, color:Int = 0x000000)
+	public function new(x:Float = 10, y:Float = 10, color:Int = 0xFFFFFF)
 	{
 		super();
 
 		this.x = x;
 		this.y = y;
 
-		currentFPS = 0;
+		currentFPS = 144;
 		selectable = false;
-		mouseEnabled = false;
+		mouseEnabled = true;
 		defaultTextFormat = new TextFormat(Paths.font("vcr.tff"), 14, color);
 		autoSize = LEFT;
 		multiline = true;
@@ -87,15 +90,18 @@ class FPS extends TextField
 			
 			#if openfl
 			memoryMegas = Math.abs(FlxMath.roundDecimal(System.totalMemory / 1000000, 1));
-			text += "\nMemory: " + memoryMegas + " MB";
+
+			if (memoryMegas > memoryMegasPeak) memoryMegasPeak = memoryMegas;
+
+			text += "\nMEM: " + memoryMegas + " RAM" + "\nMEM PEAK: " + memoryMegasPeak + " RAM";
 			#end
 
 			text += "\nStellar Engine v" + MainMenuState.stellarEngineVersion;
 
 			textColor = 0xFFFFFFFF;
-			if (memoryMegas > 3000 || currentFPS <= ClientPrefs.data.framerate / 2)
+			if (memoryMegas > 3000 || currentFPS <= ClientPrefs.framerate / 2)
 			{
-				textColor = 0xFFFF0000;
+				textColor = 0xFFFF0037;
 			}
 
 			#if (gl_stats && !disable_cffi && (!html5 || !canvas))

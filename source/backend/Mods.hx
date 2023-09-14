@@ -114,7 +114,7 @@ class Mods
 				if(FileSystem.exists(folder)) foldersToCheck.push(folder);
 			}
 
-			// Then "PsychEngine/mods/" main folder
+			// Then "StellarEngine/mods/" main folder
 			var folder:String = Paths.mods(fileToFind);
 			if(FileSystem.exists(folder)) foldersToCheck.push(Paths.mods(fileToFind));
 
