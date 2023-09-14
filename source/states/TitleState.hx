@@ -84,7 +84,7 @@ class TitleState extends MusicBeatState
 		#end
 		Mods.loadTopMod();
 
-		Application.current.window.title = LuaMain.data.windowTitle;
+		Application.current.window.title = mainData.modWindowTitle;
 
 		FlxG.game.focusLostFramerate = 60;
 		FlxG.keys.preventDefaultKeys = [TAB];
