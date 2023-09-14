@@ -14,6 +14,7 @@ import options.OptionsState;
 
 class MainMenuState extends MusicBeatState
 {
+	public static var stellarEngineVersion:String = '0.0.1 PRE-ALPHA'; //This is also used for Discord RPC
 	public static var psychEngineVersion:String = '0.7.1h'; //This is also used for Discord RPC
 	public static var curSelected:Int = 0;
 
@@ -26,7 +27,7 @@ class MainMenuState extends MusicBeatState
 		#if MODS_ALLOWED 'mods', #end
 		#if ACHIEVEMENTS_ALLOWED 'awards', #end
 		'credits',
-		#if !switch 'donate', #end
+		// 'donate', 
 		'options'
 	];
 
@@ -111,7 +112,7 @@ class MainMenuState extends MusicBeatState
 
 		var fnfVer:String = 'Friday Night Funkin v${Application.current.meta.get('version')}';
 
-		var versionTxt:FlxText = new FlxText(12, FlxG.height - 24, 0, 'FNF Vs. Transparent Arnold DEMO\nPsych Engine v${psychEngineVersion} | ${fnfVer}', 12);
+		var versionTxt:FlxText = new FlxText(12, FlxG.height - 24, 0, 'Stellar Engine v${stellarEngineVersion}\nPsych Engine v${psychEngineVersion} | ${fnfVer}', 12);
 		versionTxt.scrollFactor.set();
 		versionTxt.setFormat("VCR OSD Mono", 16, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 		add(versionTxt);

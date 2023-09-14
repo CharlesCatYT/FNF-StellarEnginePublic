@@ -2,12 +2,12 @@
 <project>
 	<!-- _________________________ Application Settings _________________________ -->
 
-	<app title="Friday Night Funkin': Vs. Transparent Arnold" packageName="com.shadowmario.psychengine" package="com.shadowmario.psychengine" main="Main" version="0.2.8" company="ShadowMario" />
+	<app title="Friday Night Funkin': Stellar Engine" packageName="com.charlescatyt.stellarengine" package="com.charlescatyt.stellarengine" main="Main" version="0.2.8" company="CharlesCatYT" />
 
-	<app file="TransparentArnold" if="windows" />
-	<app file="ArnoldLinux" if="linux" />
-	<app file="ArnoldMac" if="mac" />
-	<app file="TransparentArnold32" if="32bit" />
+	<app file="StellarEngine" if="windows" />
+	<app file="StellarLinux" if="linux" />
+	<app file="StellarMac" if="mac" />
+	<app file="StellarEngine32" if="32bit" />
 
 	<!-- NOTE TO SELF: DISABLE THIS IF ISSUES ARE FOUND -->
 	<haxedef name="LINC_LUA_RELATIVE_DYNAMIC_LIB"/> <!-- stable luas PUT AFTER FIRST LINE WITH APP NAME AND ETC -->

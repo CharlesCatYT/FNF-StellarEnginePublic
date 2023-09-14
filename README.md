@@ -1,5 +1,5 @@
-# Friday Night Funkin' - Vs. Transparent Arnold
-uh
+# Friday Night Funkin' - Stellar Engine
+totally not another psych fork!!!!! you cant believe me, right?
 
 ## Installation:
 
@@ -31,7 +31,7 @@ If the compiler gives an error saying that hxCodec cannot be found read this iss
 
 if you wish to disable things like _Lua Scripts_ or _Video Cutscenes_, you can read over to `Project.xml`
 
-inside `Project.xml`, you will find several variables to customize Psych Engine to your liking
+inside `Project.xml`, you will find several variables to customize Stellar Engine to your liking
 
 to start you off, disabling Videos should be simple, simply Delete the line `"VIDEOS_ALLOWED"` or comment it out by wrapping the line in XML-like comments, like this `<!-- YOUR_LINE_HERE -->`
 

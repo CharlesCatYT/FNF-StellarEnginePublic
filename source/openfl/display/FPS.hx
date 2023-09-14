@@ -11,6 +11,7 @@ import openfl.display._internal.stats.DrawCallContext;
 #if flash
 import openfl.Lib;
 #end
+import states.MainMenuState;
 
 #if openfl
 import openfl.system.System;
@@ -89,7 +90,7 @@ class FPS extends TextField
 			text += "\nMemory: " + memoryMegas + " MB";
 			#end
 
-			text += "\nFNF Vs. Transparent Arnold DEMO";
+			text += "\nStellar Engine v" + MainMenuState.stellarEngineVersion;
 
 			textColor = 0xFFFFFFFF;
 			if (memoryMegas > 3000 || currentFPS <= ClientPrefs.data.framerate / 2)
