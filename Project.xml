@@ -4,10 +4,10 @@
 
 	<app title="Friday Night Funkin': Vs. Transparent Arnold" packageName="com.shadowmario.psychengine" package="com.shadowmario.psychengine" main="Main" version="0.2.8" company="ShadowMario" />
 
-	<app file="OpaqueEngine" if="windows" />
-	<app file="OpaqueEngineLinux" if="linux" />
-	<app file="OpaqueEngineMac" if="mac" />
-	<app file="OpaqueEngineEngine32" if="32bit" />
+	<app file="TransparentArnold" if="windows" />
+	<app file="ArnoldLinux" if="linux" />
+	<app file="ArnoldMac" if="mac" />
+	<app file="TransparentArnold32" if="32bit" />
 
 	<!-- NOTE TO SELF: DISABLE THIS IF ISSUES ARE FOUND -->
 	<haxedef name="LINC_LUA_RELATIVE_DYNAMIC_LIB"/> <!-- stable luas PUT AFTER FIRST LINE WITH APP NAME AND ETC -->
@@ -57,8 +57,13 @@
 	<error value="You're using Haxe 4.1.5. Please update to 4.2.5 or greater." if="${haxe == 4.1.5}"
 	unless="linux" />
 
+	<error value="You're using Haxe 4.2.0. Please update to 4.2.5 or greater." if="${haxe == 4.2.0}"
+	unless="linux" />
+
 	<error value="You're using Haxe 4.2.4. Please update to 4.2.5 or greater." if="${haxe == 4.2.4}"
 	unless="linux" />
+
+	<error value="iPhone Simulator is not supported." if="iphonesimulator" />
 
 	<error value="Nintendo Switch is not supported. Seriously, why would you do that?" if="switch" />
 

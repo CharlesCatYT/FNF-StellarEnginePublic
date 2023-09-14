@@ -965,7 +965,7 @@ class CharacterEditorState extends MusicBeatState
 		if(anims.length < 1) //Prevents crash
 		{
 				anims.push('NO ANIMATIONS');
-				trace("THERES NO ANIMATIONS!!!!!")
+				trace("THERES NO ANIMATIONS!!!!!");
 	    }
 
 		animationDropDown.setData(FlxUIDropDownMenu.makeStrIdLabelArray(anims, true));

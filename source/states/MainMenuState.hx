@@ -111,7 +111,7 @@ class MainMenuState extends MusicBeatState
 
 		var fnfVer:String = 'Friday Night Funkin v${Application.current.meta.get('version')}';
 
-		var versionTxt:FlxText = new FlxText(12, FlxG.height - 24, 0, 'Psych Engine v${psychEngineVersion} | ${fnfVer}', 12);
+		var versionTxt:FlxText = new FlxText(12, FlxG.height - 24, 0, 'FNF Vs. Transparent Arnold DEMO\nPsych Engine v${psychEngineVersion} | ${fnfVer}', 12);
 		versionTxt.scrollFactor.set();
 		versionTxt.setFormat("VCR OSD Mono", 16, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 		add(versionTxt);
