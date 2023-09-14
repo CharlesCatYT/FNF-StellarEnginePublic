@@ -44,6 +44,14 @@ class CoolUtil
 		return daList != null ? listFromString(daList) : [];
 	}
 
+	function getIntArray(max:Int):Array<Int>{
+		var arr:Array<Int> = [];
+		for (i in 0...max) {
+			arr.push(i);
+		}
+		return arr;
+	}
+
 	inline public static function colorFromString(color:String):FlxColor
 	{
 		var hideChars = ~/[\t\n\r]/;

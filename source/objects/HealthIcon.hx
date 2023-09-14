@@ -25,14 +25,6 @@ class HealthIcon extends FlxSprite
 		if (sprTracker != null) setPosition(sprTracker.x + sprTracker.width + 12, sprTracker.y - 30);
 	}
 
-	public function swapOldIcon()
-	{
-		if (isOldIcon = !isOldIcon)
-			changeIcon('bf-old');
-		else
-			changeIcon(defChar);
-	}
-
 	private var iconOffsets:Array<Float> = [0, 0];
 
 	public function changeIcon(char:String, ?allowGPU:Bool = true)
@@ -40,10 +32,8 @@ class HealthIcon extends FlxSprite
 		if (this.char != char)
 		{
 			var name:String = 'icons/' + char;
-			if (!Paths.fileExists('images/' + name + '.png', IMAGE))
-				name = 'icons/icon-' + char; // Older versions of psych engine's support
-			if (!Paths.fileExists('images/' + name + '.png', IMAGE))
-				name = 'icons/icon-face'; // Prevents crash from missing icon
+			if (!Paths.fileExists('images/' + name + '.png', IMAGE)) name = 'icons/icon-' + char; // Older versions of psych engine's support
+			if (!Paths.fileExists('images/' + name + '.png', IMAGE)) name = 'icons/icon-face'; // Prevents crash from missing icon
 
 			var graphic = Paths.image(name, allowGPU);
 			var ratio = graphic.width / graphic.height;
@@ -65,10 +55,8 @@ class HealthIcon extends FlxSprite
 			this.char = char;
 			if (!isOldIcon) defChar = char;
 
-			if (char.endsWith('-pixel'))
-				antialiasing = false;
-			else
-				antialiasing = ClientPrefs.data.antialiasing;
+			if (char.endsWith('-pixel')) antialiasing = false;
+			else antialiasing = ClientPrefs.data.antialiasing;
 		}
 	}
 

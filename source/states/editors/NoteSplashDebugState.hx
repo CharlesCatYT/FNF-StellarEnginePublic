@@ -56,8 +56,6 @@ class NoteSplashDebugState extends MusicBeatState
 			splashes.add(splash);
 		}
 
-
-		//
 		var txtx = 60;
 		var txty = 640;
 		var animName:FlxText = new FlxText(txtx, txty, 'Animation name:', 16);
@@ -90,8 +88,6 @@ class NoteSplashDebugState extends MusicBeatState
 		stepperMaxFps.name = 'max_fps';
 		add(stepperMaxFps);
 
-
-		//
 		offsetsText = new FlxText(300, 150, 680, '', 16);
 		offsetsText.setFormat(Paths.font("vcr.ttf"), 16, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 		offsetsText.scrollFactor.set();
@@ -201,8 +197,7 @@ class NoteSplashDebugState extends MusicBeatState
 		if(visibleTime >= 0)
 		{
 			visibleTime -= elapsed;
-			if(visibleTime <= 0)
-				savedText.visible = false;
+			if(visibleTime <= 0) savedText.visible = false;
 		}
 
 		if(FlxG.keys.justPressed.ENTER)
@@ -238,7 +233,6 @@ class NoteSplashDebugState extends MusicBeatState
 		{
 			if(forceFrame < 0) forceFrame = 0;
 			else if(forceFrame >= maxFrame) forceFrame = maxFrame - 1;
-			//trace('curFrame: $forceFrame');
 			
 			curFrameText.text = 'Force Frame: ${forceFrame+1} / $maxFrame\n(Press Q/E to change)';
 			splashes.forEachAlive(function(spr:FlxSprite) {
@@ -295,7 +289,6 @@ class NoteSplashDebugState extends MusicBeatState
 		savedText.text = 'Saved to: $path';
 		sys.io.File.saveContent(path, strToSave);
 
-		//trace(strToSave);
 		#else
 		savedText.text = 'Can\'t save on this platform, too bad.';
 		#end

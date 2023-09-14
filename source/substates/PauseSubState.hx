@@ -147,8 +147,7 @@ class PauseSubState extends MusicBeatSubstate
 	override function update(elapsed:Float)
 	{
 		cantUnpause -= elapsed;
-		if (pauseMusic.volume < 0.5)
-			pauseMusic.volume += 0.01 * elapsed;
+		if (pauseMusic.volume < 0.5) pauseMusic.volume += 0.01 * elapsed;
 
 		super.update(elapsed);
 		updateSkipTextStuff();
@@ -360,12 +359,10 @@ class PauseSubState extends MusicBeatSubstate
 			theFunner++;
 
 			item.alpha = 0.6;
-			// item.setGraphicSize(Std.int(item.width * 0.8));
 
 			if (item.targetY == 0)
 			{
 				item.alpha = 1;
-				// item.setGraphicSize(Std.int(item.width));
 
 				if(item == skipTimeTracker)
 				{

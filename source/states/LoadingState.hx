@@ -17,12 +17,6 @@ import haxe.io.Path;
 class LoadingState extends MusicBeatState
 {
 	inline static var MIN_TIME = 1.0;
-
-	// Browsers will load create(), you can make your song load a custom directory there
-	// If you're compiling to desktop (or something that doesn't use NO_PRELOAD_ALL), search for getNextState instead
-	// I'd recommend doing it on both actually lol
-	
-	// TO DO: Make this easier
 	
 	var target:FlxState;
 	var stopMusic = false;
@@ -86,10 +80,7 @@ class LoadingState extends MusicBeatState
 		{
 			var library = Assets.getLibrary("songs");
 			final symbolPath = path.split(":").pop();
-			// @:privateAccess
-			// library.types.set(symbolPath, SOUND);
-			// @:privateAccess
-			// library.pathGroups.set(symbolPath, [library.__cacheBreak(symbolPath)]);
+
 			var callback = callbacks.add("song:" + path);
 			Assets.loadSound(path).onComplete(function (_) { callback(); });
 		}
@@ -127,8 +118,7 @@ class LoadingState extends MusicBeatState
 	
 	function onLoad()
 	{
-		if (stopMusic && FlxG.sound.music != null)
-			FlxG.sound.music.stop();
+		if (stopMusic && FlxG.sound.music != null) FlxG.sound.music.stop();
 		
 		MusicBeatState.switchState(target);
 	}
@@ -168,8 +158,7 @@ class LoadingState extends MusicBeatState
 		if (!loaded)
 			return new LoadingState(target, stopMusic, directory);
 		#end
-		if (stopMusic && FlxG.sound.music != null)
-			FlxG.sound.music.stop();
+		if (stopMusic && FlxG.sound.music != null) FlxG.sound.music.stop();
 		
 		return target;
 	}
@@ -201,10 +190,7 @@ class LoadingState extends MusicBeatState
 
 		var library = LimeAssets.getLibrary(id);
 
-		if (library != null)
-		{
-			return Future.withValue(library);
-		}
+		if (library != null) return Future.withValue(library);
 
 		var path = id;
 		var rootPath = null;
@@ -292,17 +278,17 @@ class MultiCallback
 				numRemaining--;
 				
 				if (logId != null)
-					log('fired $id, $numRemaining remaining');
+					log('Fired $id, $numRemaining remaining');
 				
 				if (numRemaining == 0)
 				{
 					if (logId != null)
-						log('all callbacks fired');
+						log('All callbacks fired');
 					callback();
 				}
 			}
 			else
-				log('already fired $id');
+				log('Already fired $id');
 		}
 		unfired[id] = func;
 		return func;
