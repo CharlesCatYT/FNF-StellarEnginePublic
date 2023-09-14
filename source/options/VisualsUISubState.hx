@@ -112,7 +112,6 @@ class VisualsUISubState extends BaseOptionsMenu
 			'What icon bop do you prefer?',
 			'iconBop',
 			'string',
-			'Psych',
 			['Psych', 'OS']);
 		addOption(option);
 

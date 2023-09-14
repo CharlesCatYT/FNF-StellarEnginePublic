@@ -41,6 +41,7 @@ import states.editors.ChartingState;
 import states.editors.CharacterEditorState;
 
 import substates.PauseSubState;
+import substates.GameplayChangersSubstate;
 import substates.GameOverSubstate;
 
 #if !flash 
@@ -216,6 +217,8 @@ class PlayState extends MusicBeatState
 	public var camOther:FlxCamera;
 	public var cameraSpeed:Float = 1;
 
+	var dancingLeft:Bool = false;
+	
 	public var songScore:Int = 0;
 	public var songHits:Int = 0;
 	public var songMisses:Int = 0;
@@ -1039,7 +1042,7 @@ class PlayState extends MusicBeatState
 			var swagCounter:Int = 0;
 
 			if (ClientPrefs.data.showMsText) {
-				if (ClientPrefs.downScroll) {
+				if (ClientPrefs.data.downScroll) {
 					msTimeTxt.x = playerStrums.members[1].x-100;
 					msTimeTxt.y = playerStrums.members[1].y+100;
 				} else {
@@ -1047,7 +1050,7 @@ class PlayState extends MusicBeatState
 					msTimeTxt.y = playerStrums.members[1].y-50;
 				}
 
-				if (ClientPrefs.middleScroll) {
+				if (ClientPrefs.data.middleScroll) {
 					msTimeTxt.x = playerStrums.members[0].x-250;
 					msTimeTxt.y = playerStrums.members[1].y+30;
 				}

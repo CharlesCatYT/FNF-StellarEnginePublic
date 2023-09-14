@@ -16,6 +16,7 @@ import shaders.ColorSwap;
 import states.StoryMenuState;
 import states.OutdatedState;
 import states.MainMenuState;
+import lime.app.Application;
 #if MODS_ALLOWED
 import sys.FileSystem;
 import sys.io.File;
