@@ -46,6 +46,7 @@ same goes for _Lua Scripts_, comment out or delete the line with `LUA_ALLOWED`, 
 ### Awesome: Special Thanks
 
 - TheWorldMachinima - Softcoded Achievements
+- notweuz - The features I took from OS Engine cuz im lazy rn
 
 ### Psych Engine
 
