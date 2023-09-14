@@ -1,6 +1,7 @@
 package;
 
-#if !macro
+// haxe 4.3.x support?!?
+#if !macro 
 // Discord API
 #if desktop
 import backend.Discord;
