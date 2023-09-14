@@ -102,6 +102,20 @@ class VisualsUISubState extends BaseOptionsMenu
 			'bool');
 		addOption(option);
 
+		var option:Option = new Option('Display MS Offset On Note Hits',
+			'If checked, the note offset (in milliseconds) will appear near notes.',
+			'showMsText',
+			'bool');
+		addOption(option);
+
+		var option:Option = new Option('Icon Bop',
+			'What icon bop do you prefer?',
+			'iconBop',
+			'string',
+			'Psych',
+			['Psych', 'OS']);
+		addOption(option);
+
 		var option:Option = new Option('Score Text Zoom on Hit',
 			"If unchecked, disables the Score text zooming\neverytime you hit a note.",
 			'scoreZoom',

@@ -43,6 +43,8 @@ class SaveVariables {
 	public var timeBarType:String = 'Time Left';
 	public var scoreZoom:Bool = true;
 	public var noReset:Bool = false;
+	public var showMsText:Bool = true;
+	public var iconbops:String = 'OS';
 	public var healthBarAlpha:Float = 1;
 	public var hitsoundVolume:Float = 0;
 	public var coloredHealthBar = true;

@@ -1575,10 +1575,20 @@ class FunkinLua {
 		return 'mac';
 		#elseif hl
 		return 'hashlink';
-		#elseif (html5 || emscripten)
-		return 'browser';
+		#elseif html5
+		return 'html5';
+		#elseif emscripten
+		return 'emscripten';
+		#elseif nodejs
+		return 'nodejs';
+		#elseif electron
+		return 'electron';
 		#elseif webos
 		return 'webos';
+		#elseif air
+		return 'air';
+		#elseif flash
+		return 'flash';
 		#elseif android
 		return 'android';
 		#elseif ios
