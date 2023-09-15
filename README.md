@@ -1,6 +1,8 @@
 # Friday Night Funkin' - Stellar Engine
 totally not another psych fork!!!!! you cant believe me, right?
 
+i give up
+
 ## Installation:
 
 You must have [Haxe](https://haxe.org/download/), installed in order to move on to these next steps
