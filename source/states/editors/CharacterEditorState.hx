@@ -1182,8 +1182,8 @@ class CharacterEditorState extends MusicBeatState
 
 		if (FlxG.mouse.justPressedRight)
 		{
-			lastPosition.set(CoolUtil.boundTo(FlxG.mouse.getScreenPosition().x, 0, FlxG.width),
-				CoolUtil.boundTo(FlxG.mouse.getScreenPosition().y, 0, FlxG.height));
+			lastPosition.set(FlxMath.bound(FlxG.mouse.getScreenPosition().x, 0, FlxG.width),
+				FlxMath.bound(FlxG.mouse.getScreenPosition().y, 0, FlxG.height));
 		}
 
 		if (FlxG.mouse.pressedRight) // draggable camera with mouse movement
@@ -1198,11 +1198,11 @@ class CharacterEditorState extends MusicBeatState
 
 				if (FlxG.keys.pressed.SHIFT) mult = 4;
 
-				camFollow.x = camFollow.x - -CoolUtil.boundTo(mouseDiff.x, -FlxG.width, FlxG.width) * mult;
-				camFollow.y = camFollow.y - -CoolUtil.boundTo(mouseDiff.y, -FlxG.height, FlxG.height) * mult;
+				camFollow.x = camFollow.x - -FlxMath.bound(mouseDiff.x, -FlxG.width, FlxG.width) * mult;
+				camFollow.y = camFollow.y - -FlxMath.bound(mouseDiff.y, -FlxG.height, FlxG.height) * mult;
 
-				lastPosition.set(CoolUtil.boundTo(FlxG.mouse.getScreenPosition().x, 0, FlxG.width),
-					CoolUtil.boundTo(FlxG.mouse.getScreenPosition().y, 0, FlxG.height));
+				lastPosition.set(FlxMath.bound(FlxG.mouse.getScreenPosition().x, 0, FlxG.width),
+					FlxMath.bound(FlxG.mouse.getScreenPosition().y, 0, FlxG.height));
 			}
 		}
 		else FlxG.mouse.visible = true;

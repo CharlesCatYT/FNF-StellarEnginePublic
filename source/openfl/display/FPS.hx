@@ -99,7 +99,7 @@ class FPS extends TextField
 			text += "\nStellar Engine v" + MainMenuState.stellarEngineVersion;
 
 			textColor = 0xFFFFFFFF;
-			if (memoryMegas > 3000 || currentFPS <= ClientPrefs.framerate / 2)
+			if (memoryMegas > 3000 || currentFPS <= ClientPrefs.data.framerate / 2)
 			{
 				textColor = 0xFFFF0037;
 			}
